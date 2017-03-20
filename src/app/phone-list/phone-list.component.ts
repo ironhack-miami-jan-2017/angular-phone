@@ -10,6 +10,7 @@ import { PhoneService } from '../phone.service';
 export class PhoneListComponent implements OnInit {
 
   phones: Array<Object> = [];
+  errorMessage: string = '';
 
   constructor(private myPhoneService: PhoneService) { }
 
@@ -17,6 +18,9 @@ export class PhoneListComponent implements OnInit {
     this.myPhoneService.getList()
       .then((phonesList) => {
         this.phones = phonesList;
+      })
+      .catch((err) => {
+        this.errorMessage = 'There was an error. Try again later.';
       });
   }
 

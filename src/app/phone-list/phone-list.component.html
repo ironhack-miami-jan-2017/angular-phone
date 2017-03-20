@@ -1,5 +1,7 @@
 <h2> Phone List </h2>
 
+<div class="error" *ngIf="errorMessage"> {{ errorMessage }} </div>
+
 <div class="phone-list">
   <div *ngFor="let onePhone of phones">
     <img [src]="onePhone.image">
