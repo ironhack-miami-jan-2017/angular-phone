@@ -1,0 +1,9 @@
+.phone-list div {
+  height: 300px;
+  margin: 30px;
+  float: left;
+}
+
+.phone-list img {
+  height: 100%;
+}

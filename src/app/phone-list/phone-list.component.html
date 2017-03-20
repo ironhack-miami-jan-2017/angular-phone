@@ -1,0 +1,9 @@
+<h2> Phone List </h2>
+
+<div class="phone-list">
+  <div *ngFor="let onePhone of phones">
+    <img [src]="onePhone.image">
+    <h3> {{ onePhone.name }} </h3>
+    <p> {{ onePhone.brand }} </p>
+  </div>
+</div>
