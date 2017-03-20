@@ -11,6 +11,7 @@ import { PhoneService } from '../phone.service';
 export class PhoneDetailsComponent implements OnInit {
 
   phone: Object;
+  errorMessage: string = '';
 
   constructor(
     private myRoute: ActivatedRoute,
@@ -30,7 +31,7 @@ export class PhoneDetailsComponent implements OnInit {
         this.phone = thePhoneDetails;
       })
       .catch((err) => {
-        console.log('ERROR', err);
+        this.errorMessage = 'Could not retrieve phone details. Try again later.';
       });
   }
 
@@ -44,7 +45,7 @@ export class PhoneDetailsComponent implements OnInit {
         this.myNavigator.navigate(['/']);
       })
       .catch((err) => {
-        console.log('error', err);
+        this.errorMessage = 'Could not retrieve phone details. Try again later.';
       });
   }
 

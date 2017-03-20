@@ -1,5 +1,7 @@
 <h2> Phone Details </h2>
 
+<div class="error" *ngIf="errorMessage"> {{ errorMessage }} </div>
+
 <a routerLink="/"> Back to list </a>
 
 <div *ngIf="phone">
