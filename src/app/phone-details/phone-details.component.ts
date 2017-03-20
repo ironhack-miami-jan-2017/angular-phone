@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { PhoneService } from '../phone.service';
 
@@ -14,7 +14,8 @@ export class PhoneDetailsComponent implements OnInit {
 
   constructor(
     private myRoute: ActivatedRoute,
-    private myPhoneService: PhoneService
+    private myPhoneService: PhoneService,
+    private myNavigator: Router
   ) { }
 
   ngOnInit() {
@@ -30,6 +31,20 @@ export class PhoneDetailsComponent implements OnInit {
       })
       .catch((err) => {
         console.log('ERROR', err);
+      });
+  }
+
+  deletePhone() {
+    if (!window.confirm('Are you sure?')) {
+      return;
+    }
+
+    this.myPhoneService.remove(this.phone['_id'])
+      .then(() => {
+        this.myNavigator.navigate(['/']);
+      })
+      .catch((err) => {
+        console.log('error', err);
       });
   }
 

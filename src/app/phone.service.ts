@@ -19,4 +19,10 @@ export class PhoneService {
       .toPromise()
       .then(apiResponse => apiResponse.json())
   }
+
+  remove(id) {
+    return this.myHttp.delete(`${this.BASE_URL}/api/phones/${id}`)
+      .toPromise()
+      .then(apiResponse => apiResponse.json())
+  }
 }
